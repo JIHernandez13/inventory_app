@@ -1,0 +1,14 @@
+#!/bin/sh
+# commit-msg hook: lint the commit message with gitlint.
+#
+# Enable this hook (once per clone) with:
+#   git config core.hooksPath .githooks
+#
+# Requires gitlint to be installed (e.g. `pip install gitlint` or `pipx install gitlint`).
+
+if ! command -v gitlint >/dev/null 2>&1; then
+    echo "gitlint not found; skipping commit message lint (install with 'pip install gitlint')." >&2
+    exit 0
+fi
+
+gitlint --msg-filename "$1"

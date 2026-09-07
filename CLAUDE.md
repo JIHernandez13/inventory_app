@@ -80,6 +80,8 @@ cargo doc --open
 - Feature branches: `feature/<feature-name>`
 - Bug fix branches: `bugfix/<issue-description>`
 - Commit messages should be descriptive and follow conventional commits
+- Commit messages are linted with [gitlint](https://jorisroovers.com/gitlint/) (config in `.gitlint`); enable the
+  local hook once per clone with `git config core.hooksPath .githooks`, and CI enforces it on every PR
 
 ### Before Committing
 
@@ -87,6 +89,7 @@ cargo doc --open
 2. Run `cargo clippy` to check for lints
 3. Run `cargo test` to ensure all tests pass
 4. Run `cargo check` to verify compilation
+5. Run `gitlint` (or rely on the `commit-msg` hook) to check your commit message
 
 ## Rust Coding Conventions
 
