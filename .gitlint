@@ -1,0 +1,9 @@
+# Configuration for gitlint (https://jorisroovers.com/gitlint/)
+# Uses gitlint's default rule set. See the docs for available options:
+# https://jorisroovers.com/gitlint/latest/configuration/
+
+[general]
+# Don't lint commits from merges or fixups/squashes.
+ignore-merge-commits=true
+ignore-fixup-commits=true
+ignore-squash-commits=true
