@@ -9,11 +9,26 @@ starting work.
 
 ## [Unreleased]
 
+## [0.2.0] - Phase 1 - 2026-09-08
+
 ### Added
 
-- Phase 1: domain models, local drift database, repository layer, and a
-  minimal (unthemed) CRUD UI for groceries/home goods/appliances/tools.
-  Closes [#6](https://github.com/JIHernandez13/inventory_app/issues/6).
+- Domain models (`ItemCategory`, base `InventoryItem`, `GroceryAttributes`,
+  `DurableGoodAttributes`) with `isExpired`/`isExpiringSoon()`/`isLowStock`
+  domain logic
+- Local drift database: `Items` base table + `GroceryDetails`/
+  `DurableGoodDetails` extension tables, UUID ids + timestamps + soft
+  delete for future sync-friendliness
+- `ItemRepository`/`DriftItemRepository` hiding drift behind a plain
+  interface, wrapping storage failures in `ItemStorageException`
+- Riverpod `itemListProvider` (reactive via drift `.watch()`) and
+  `ItemsNotifier` for create/update/delete
+- Minimal, scheme-agnostic CRUD UI: item list with status icons, add/edit
+  form, detail view
+- Model/repository/provider/widget tests (21 total)
+
+[PR #10](https://github.com/JIHernandez13/inventory_app/pull/10), closes
+[#6](https://github.com/JIHernandez13/inventory_app/issues/6).
 
 ## [0.1.0] - Phase 0 - 2026-09-08
 
