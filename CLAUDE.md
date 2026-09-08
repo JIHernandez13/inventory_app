@@ -93,6 +93,20 @@ flutter build ios --release
    CI regenerates it)
 5. Run `gitlint` (or rely on the `commit-msg` hook) to check your commit message
 
+### Issue Tracking & Release Notes
+
+- The build is tracked as phases under the roadmap issue
+  [#4](https://github.com/JIHernandez13/inventory_app/issues/4), one
+  sub-issue per phase. Each phase's PR should reference/close its issue
+  (e.g. `Closes #6`).
+- [`CHANGELOG.md`](../CHANGELOG.md) records what shipped in each phase
+  (Keep a Changelog format). Add an `### Added`/`### Changed`/`### Fixed`
+  entry under `## [Unreleased]` as part of the PR for a phase; when a
+  phase's PR merges, that becomes its dated release entry.
+- **Starting a new session**: read `CHANGELOG.md` and the open phase
+  issues under #4 first to pick up where the project left off before
+  reading through `lib/`.
+
 ### Git Workflow
 
 - Main development branch: `main`
